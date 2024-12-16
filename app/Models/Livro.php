@@ -11,4 +11,9 @@ class Livro extends Rmodel
     {
         return $this->belongsToMany(Genero::class, 'livro_generos', 'livro_id', 'genero_id');
     }
+
+    public function emprestimos()
+    {
+        return $this->hasMany(Emprestimo::class, 'livro_id');
+    }
 }

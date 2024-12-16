@@ -19,12 +19,18 @@ class EmprestimoController extends Controller
         $listaLivro = Livro::where('statusEmprestimo', '==', 0)->get();
         $data['lista'] = $listaLivro;
 
-        // Obtém lista de todos os usuarios com statusEmprestimo diferente de 0
+        // Obtém lista de todos os usuarios com status diferente de 0
         $listaUsuario = Usuario::where('status', '!=', 0)->get();
         $data['listauser'] = $listaUsuario;
 
         $listaLivroEmprestado = Livro::where('statusEmprestimo', '!=', 0)->get();
         $data['listaemprestados'] = $listaLivroEmprestado;
+
+        $emprestimos = Emprestimo::with(['livro', 'usuario'])
+            ->whereNull('dataDevolvido')
+            ->orderByDesc('dataPrazo') // Correção aqui
+            ->paginate(2);
+        $data['emprestimos'] = $emprestimos;
 
         return view('emprestimo', $data);
     }
