@@ -35,6 +35,40 @@ Passos para inicialização do sistema
 
         php artisan migrate
 
+    Executar composer
+
+        composer update
+
+
+    Instalar Bootstrap
+    
+        npm install
+    
+        npm i --save bootstrap @popperjs/core
+    
+        npm i --save-dev sass
+    
+        para rodar em desenvolvimento
+    
+        npm run dev
+    
+        em produção
+    
+        npm run build
+    
+        (ir em resources/js/bootstrap e alterar o arquivo)
+    
+        import 'bootstrap';
+    
+        (ir em resources e criar nova pasta e arquivo)
+    
+        criar pasta sass
+        criar arquivo app.scss
+    
+        (dentro do app.scss)
+    
+        @import 'bootstrap/scss/bootstrap';
+
 
 Considerações finais
 
