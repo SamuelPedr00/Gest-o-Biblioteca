@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <select name="genero" class="form-control">
-                            <option value="">Selecione um Gênero</option>
+                            <option value="">Todos os Gênero</option>
 
                             @foreach ($listagenero as $genero)
                                 <option value="{{ $genero->id }}">{{ $genero->nome }}</option>

@@ -15,8 +15,9 @@ class EmprestimoController extends Controller
     public function index(Request $request)
     {
         $data = [];
-        // Obtém lista de todos os livros com statusEmprestimo diferente de 0
-        $listaLivro = Livro::where('statusEmprestimo', '==', 0)->get();
+        // Obtém lista de todos os livros com statusEmprestimo de 0
+        $listaLivro = Livro::where('statusEmprestimo', '==', 0)
+        ->where('status','!=', 0)->get();
         $data['lista'] = $listaLivro;
 
         // Obtém lista de todos os usuarios com status diferente de 0
